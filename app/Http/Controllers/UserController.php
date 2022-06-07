@@ -3,23 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller{
 
     //Get users
-    public function getAllUsers($id = null){
-        if($id != null){
-            return response()->json([
-                "status" => "Success",
-                "user" => $id
-            ], 200);
+    public function getAllUsers($user_id = null){
+        if($user_id != null){
+            $users = User::find($user_id);
+        }else{
+            $users = User::all();
         }
-
+        
         return response()->json([
             "status" => "Success",
-            "users" => [1,2,3]
+            "users" => $users
         ], 200);
     }
+
     
     //Sign Up API
     public function signUp(Request $request){
@@ -46,7 +47,7 @@ class UserController extends Controller{
     //     $user["emil"] = $request->emil;
     //     $user["password"] = $request->password;
 
-
+    //     $users = User::find($user_id);
     //     return response()->json([
     //         "status" => "Success",
     //         "user_id" => $user_id
