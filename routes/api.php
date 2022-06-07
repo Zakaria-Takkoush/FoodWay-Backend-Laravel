@@ -14,6 +14,7 @@ use App\Http\Controllers\ReviewController;
 Route::get('/users/{id?}', [UserController::class, 'getAllUsers']);
 Route::get('/restaurants/{id?}', [RestoController::class, 'getAllRestos']);
 Route::get('/reviews/{id?}', [ReviewController::class, 'getAllReviews']);
+Route::get('/ratings/{id?}', [ReviewController::class, 'getAllRatings']);
 
 // Route::get('/search/{name}', [RestoController::class, 'getRestoByName']);
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Review;
+use App\Models\Rating;
 
 class ReviewController extends Controller
 {
@@ -17,7 +18,21 @@ class ReviewController extends Controller
             
             return response()->json([
                 "status" => "Success",
-                "restos" => $revs
+                "reviews" => $revs
+            ], 200);
+        }
+
+        // Get All Ratings
+        public function getAllRatings($id = null){
+            if($id != null){
+                $ratings = Rating::find($id);
+            }else{
+                $ratings = Rating::all();
+            }
+            
+            return response()->json([
+                "status" => "Success",
+                "ratings" => $ratings
             ], 200);
         }
 }
