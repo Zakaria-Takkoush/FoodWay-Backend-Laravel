@@ -35,4 +35,15 @@ class ReviewController extends Controller
                 "ratings" => $ratings
             ], 200);
         }
+
+        //Get restaurant reviews
+        public function getRestoreview($id){
+
+            $reviews = Review::where("resto_id", $id)->get();
+            
+            return response()->json([
+                "status" => "Success",
+                "reviews" => $reviews
+            ], 200);
+        }
 }
