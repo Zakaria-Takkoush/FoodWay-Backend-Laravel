@@ -20,4 +20,22 @@ class UserController extends Controller{
         ], 200);
     }
     
+    public function signUp(Request $request){
+        // die($request);
+        $user = [];
+        $user["first_name"] = $request->first_name;
+        $user["last_name"] = $request->last_name;
+        $user["gender"] = $request->gender;
+        $user["email"] = $request->email;
+        $user["passowrd"] = $request->passowrd;
+        $user["phone_number"] = $request->phone_number;
+        $user["city_id"] = $request->city_id;
+        $user["is_admin"] = 0;
+
+        return response()->json([
+            "status" => "Success",
+            "users" => $user
+        ], 200);
+    }
+
 }
