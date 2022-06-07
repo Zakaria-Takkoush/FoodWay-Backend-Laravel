@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller{
 
+    //Get users
     public function getAllUsers($id = null){
         if($id != null){
             return response()->json([
@@ -20,8 +21,8 @@ class UserController extends Controller{
         ], 200);
     }
     
+    //Sign Up API
     public function signUp(Request $request){
-        // die($request);
         $user = [];
         $user["first_name"] = $request->first_name;
         $user["last_name"] = $request->last_name;
@@ -37,5 +38,19 @@ class UserController extends Controller{
             "users" => $user
         ], 200);
     }
+
+
+    // Login API
+    // public function login(Request $request){
+
+    //     $user["emil"] = $request->emil;
+    //     $user["password"] = $request->password;
+
+
+    //     return response()->json([
+    //         "status" => "Success",
+    //         "user_id" => $user_id
+    //     ], 200);
+    // }
 
 }
