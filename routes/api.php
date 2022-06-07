@@ -17,6 +17,7 @@ Route::get('/reviews/{id?}', [ReviewController::class, 'getAllReviews']);
 Route::get('/ratings/{id?}', [ReviewController::class, 'getAllRatings']);
 
 // Route::get('/search/{name}', [RestoController::class, 'getRestoByName']);
+Route::get('/get_resto/{id}', [RestoController::class, 'getResto']);
 
 Route::post('/add_resto', [RestoController::class, 'addResto']);
 
