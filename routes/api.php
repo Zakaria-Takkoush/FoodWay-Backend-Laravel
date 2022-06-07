@@ -17,10 +17,8 @@ Route::get('/reviews/{id?}', [ReviewController::class, 'getAllReviews']);
 
 // Route::get('/search/{name}', [RestoController::class, 'getRestoByName']);
 
-// Route::post('/add_resto', [RestoController::class, 'addResto']);
-// Route::post('/add_resto', [RestoController::class, 'addResto']);
-// Route::post('/add_resto', [RestoController::class, 'addResto']);
+Route::post('/add_resto', [RestoController::class, 'addResto']);
 
 Route::post('/signup', [UserController::class, 'signUp']);
-// Route::post('/login', [UserController::class, 'signUp']);
+Route::post('/login', [UserController::class, 'login']);
 

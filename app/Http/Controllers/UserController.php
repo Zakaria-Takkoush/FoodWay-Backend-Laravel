@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller{
 
@@ -24,15 +25,30 @@ class UserController extends Controller{
     
     //Sign Up API
     public function signUp(Request $request){
-        $user = [];
-        $user["first_name"] = $request->first_name;
-        $user["last_name"] = $request->last_name;
-        $user["gender"] = $request->gender;
-        $user["email"] = $request->email;
-        $user["passowrd"] = $request->passowrd;
-        $user["phone_number"] = $request->phone_number;
-        $user["city_id"] = $request->city_id;
-        $user["is_admin"] = 0;
+
+        // $user = [];
+        // $user["first_name"] = $request->first_name;
+        // $user["last_name"] = $request->last_name;
+        // $user["gender"] = $request->gender;
+        // $user["email"] = $request->email;
+        // $user["passowrd"] = $request->passowrd;
+        // $user["phone_number"] = $request->phone_number;
+        // $user["city_id"] = $request->city_id;
+        // $user["is_admin"] = 0;
+
+        $user = new User;
+
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->gender = $request->gender;
+        $user->email = $request->email;
+        $user->passowrd = $request->passowrd;
+        $user->phone_number = $request->phone_number;
+        $user->city_id = $request->city_id;
+        $user->image = null;
+        $user->is_admin = 0;
+
+        $user->save();
 
         return response()->json([
             "status" => "Success",
