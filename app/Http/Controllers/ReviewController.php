@@ -46,4 +46,21 @@ class ReviewController extends Controller
                 "reviews" => $reviews
             ], 200);
         }
+
+        public function addReview(Request $request){
+
+            $rev = new Review;
+    
+            $rev->status = 1;
+            $rev->rev_text = $request->rev_text;
+            $rev->user_id = $request->user_id;
+            $rev->resto_id = $request->resto_id;
+    
+            $rev->save();
+            
+            return response()->json([
+                "status" => "Success"
+            ], 200);
+        }
 }
+

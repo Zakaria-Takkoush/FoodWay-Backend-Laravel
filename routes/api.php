@@ -23,6 +23,8 @@ Route::get('/get_resto_reviews/{id}', [ReviewController::class, 'getRestoreview'
 
 Route::post('/add_resto', [RestoController::class, 'addResto']);
 
+Route::post('/add_review', [ReviewController::class, 'addReview']);
+
 Route::post('/signup', [UserController::class, 'signUp']);
 Route::post('/login', [UserController::class, 'login']);
 
