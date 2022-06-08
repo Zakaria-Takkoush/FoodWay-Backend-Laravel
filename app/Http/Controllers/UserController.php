@@ -42,7 +42,7 @@ class UserController extends Controller{
         $user->last_name = $request->last_name;
         $user->gender = $request->gender;
         $user->email = $request->email;
-        $user->passowrd = $request->passowrd;
+        $user->password = Hash::make($request->password);
         $user->phone_number = $request->phone_number;
         $user->city_id = $request->city_id;
         $user->image = null;
