@@ -18,12 +18,11 @@ Route::get('/ratings/{id?}', [ReviewController::class, 'getAllRatings']);
 
 // Route::get('/search/{name}', [RestoController::class, 'getRestoByName']);
 Route::get('/get_resto/{id}', [RestoController::class, 'getResto']);
-
 Route::get('/get_resto_reviews/{id}', [ReviewController::class, 'getRestoreview']);
-
 Route::post('/add_resto', [RestoController::class, 'addResto']);
 
 Route::post('/add_review', [ReviewController::class, 'addReview']);
+Route::post('/add_rating', [ReviewController::class, 'addRating']);
 
 Route::post('/signup', [UserController::class, 'signUp']);
 Route::post('/login', [UserController::class, 'login']);

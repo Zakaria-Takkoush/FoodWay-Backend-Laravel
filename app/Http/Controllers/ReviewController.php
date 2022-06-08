@@ -47,6 +47,7 @@ class ReviewController extends Controller
             ], 200);
         }
 
+        //Add a review
         public function addReview(Request $request){
 
             $rev = new Review;
@@ -57,6 +58,22 @@ class ReviewController extends Controller
             $rev->resto_id = $request->resto_id;
     
             $rev->save();
+            
+            return response()->json([
+                "status" => "Success"
+            ], 200);
+        }
+
+        //Add a rating
+        public function addRating(Request $request){
+
+            $rating = new Rating;
+
+            $rating->rating = $request->rating;
+            $rating->user_id = $request->user_id;
+            $rating->resto_id = $request->resto_id;
+    
+            $rating->save();
             
             return response()->json([
                 "status" => "Success"
